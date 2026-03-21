@@ -55,10 +55,8 @@
     .btn-outline { border: 1px solid var(--border-h); color: var(--sand); padding: 0.8rem 2rem; font-size: 0.82rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; transition: all 0.2s; display: inline-block; }
     .btn-outline:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
     .hero-photo { position: relative; display: flex; justify-content: center; }
-    .hero-photo::before {
-  display: none;
-}
-    .hero-photo img { width: 100%; max-width: 360px; height: 460px; object-fit: cover; object-position: center top; border-radius: 4px; filter: sepia(10%) brightness(0.92); position: relative; z-index: 1; }
+    .hero-photo::before { display: none; }
+    .hero-photo img { width: 100%; max-width: 360px; height: 460px; object-fit: cover; object-position: center top; border-radius: 4px; filter: sepia(10%) brightness(0.92); position: relative; z-index: 1; border-bottom: 3px solid var(--copper); }
     .hero-badge { position: absolute; bottom: -18px; left: -18px; background: var(--bark); border: 1px solid var(--border-h); padding: 0.8rem 1.2rem; border-radius: 4px; z-index: 2; }
     .hero-badge .num { font-family: var(--ff-d); font-size: 1.8rem; font-weight: 600; color: var(--gold); display: block; line-height: 1; }
     .hero-badge .lbl { font-size: 0.68rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; font-family: var(--ff-m); }
@@ -142,11 +140,12 @@
       section{padding:4rem 1.5rem;}
       .story-grid{grid-template-columns:1fr;}
       .tools-nav{grid-template-columns:1fr 1fr;}
-      .featured-grid{grid-template-columns:1fr;}
+      .featured-grid{grid-template-columns:1fr 1fr;}
       footer{flex-direction:column;gap:1rem;text-align:center;padding:2rem 1.5rem;}
     }
     @media(max-width:600px){
       .tools-nav{grid-template-columns:1fr;}
+      .featured-grid{grid-template-columns:1fr;}
       .nav-links{display:none;}
     }
   </style>
@@ -287,36 +286,73 @@
     <h2 class="section-title">Projects built from<br><em>real problems.</em></h2>
     <div class="divider"></div>
     <div class="featured-grid">
+
       <a class="feat-card" href="sql.html">
         <div class="feat-placeholder">🔍</div>
         <div class="feat-body">
           <p class="feat-tool">SQL · MySQL</p>
           <h3 class="feat-title">Fraud Detection Monitoring System</h3>
-          <p class="feat-desc">5 business questions answered using SQL queries and 4 reusable views for continuous fraud monitoring across a simulated banking database.</p>
+          <p class="feat-desc">5 business questions answered using SQL queries and 4 reusable views for continuous fraud monitoring.</p>
           <p class="feat-insight">KES 2.60M in flagged transactions identified across 7 Kenyan cities.</p>
           <span class="feat-link">View Project →</span>
         </div>
       </a>
+
+      <a class="feat-card" href="sql.html">
+        <div class="feat-placeholder">🏦</div>
+        <div class="feat-body">
+          <p class="feat-tool">SQL · MySQL</p>
+          <h3 class="feat-title">Bank Risk Intelligence System</h3>
+          <p class="feat-desc">Relational database modelling credit exposure, collateral coverage and branch-level default risk.</p>
+          <p class="feat-insight">Kitale and Mombasa branches carry the highest default burden.</p>
+          <span class="feat-link">View Project →</span>
+        </div>
+      </a>
+
       <a class="feat-card" href="excel.html">
         <div class="feat-placeholder">📈</div>
         <div class="feat-body">
           <p class="feat-tool">Excel · Power Query</p>
           <h3 class="feat-title">Customer Attrition & Engagement Risk</h3>
-          <p class="feat-desc">Analysed how digital engagement and product strategy drive KES 186M in revenue at risk from customer churn in a retail banking context.</p>
+          <p class="feat-desc">Analysed how digital engagement and product strategy drive KES 186M in revenue at risk from churn.</p>
           <p class="feat-insight">20.4% churn rate — 12.6pp higher among digitally inactive customers.</p>
           <span class="feat-link">View Project →</span>
         </div>
       </a>
+
+      <a class="feat-card" href="excel.html">
+        <div class="feat-placeholder">🏛️</div>
+        <div class="feat-body">
+          <p class="feat-tool">Excel · Advanced Formulas</p>
+          <h3 class="feat-title">Retail Loan Portfolio Risk Analysis</h3>
+          <p class="feat-desc">Portfolio exposure, default risk and collateral coverage across 2,000 loan records and multiple branches.</p>
+          <p class="feat-insight">Mortgages dominate at 73% — Karen and Kisumu show highest default concentration.</p>
+          <span class="feat-link">View Project →</span>
+        </div>
+      </a>
+
+      <a class="feat-card" href="powerbi.html">
+        <div class="feat-placeholder">⚡</div>
+        <div class="feat-body">
+          <p class="feat-tool">Power BI · MySQL · DAX</p>
+          <h3 class="feat-title">Fraud Monitoring Dashboard</h3>
+          <p class="feat-desc">3-page live dashboard connected to MySQL with 6 DAX measures and conditional risk formatting.</p>
+          <p class="feat-insight">KES 2.60M of KES 7.24M total flagged — 35.9% portfolio exposure rate.</p>
+          <span class="feat-link">View Project →</span>
+        </div>
+      </a>
+
       <a class="feat-card" href="python.html">
         <div class="feat-placeholder">🐍</div>
         <div class="feat-body">
           <p class="feat-tool">Python · Pandas · Seaborn</p>
           <h3 class="feat-title">Customer Credit Scoring Model</h3>
-          <p class="feat-desc">Built a weighted scorecard model from scratch scoring 1,000 customers on the 300–850 scale with automated loan approval decisions.</p>
+          <p class="feat-desc">Weighted scorecard model scoring 1,000 customers on the 300–850 scale with automated loan decisions.</p>
           <p class="feat-insight">51.9% decline rate driven by 76.9% high-DTI portfolio exposure.</p>
           <span class="feat-link">View Project →</span>
         </div>
       </a>
+
     </div>
   </div>
 </section>
@@ -331,7 +367,7 @@
       <a class="contact-link" href="mailto:moreengatwiri90@gmail.com">✉ Email Me</a>
       <a class="contact-link" href="https://www.linkedin.com/in/moreen-gatwiri-kagwiria-851246239" target="_blank">in LinkedIn</a>
       <a class="contact-link" href="https://github.com/Moh254" target="_blank">⌥ GitHub</a>
-      <a class="contact-link btn-primary" href="assets/docs/Moreen_Gatwiri_CV.docx" target="_blank">↓ Download CV</a>
+      <a class="contact-link btn-primary" href="assets/docs/Moreen_Gatwiri_CV.pdf" target="_blank">↓ Download CV</a>
     </div>
   </div>
 </section>
