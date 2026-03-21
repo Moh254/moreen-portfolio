@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Power BI Projects | Moreen Gatwiri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root{--espresso:#120A05;--walnut:#1E1008;--mahogany:#2D1810;--bark:#3D2010;--caramel:#5C3318;--copper:#C17A2F;--gold:#D4A017;--amber:#E8892A;--cream:#FDF3DC;--sand:#EDD9A3;--muted:#A08060;--dim:#6B4E30;--border:rgba(193,122,47,0.2);--border-h:rgba(212,160,23,0.5);--ff-display:'Cormorant Garamond',Georgia,serif;--ff-body:'DM Sans',sans-serif;--ff-mono:'JetBrains Mono',monospace;}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{background:var(--espresso);color:var(--cream);font-family:var(--ff-body);font-size:16px;line-height:1.7;overflow-x:hidden;}
+    a{color:inherit;text-decoration:none;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:1.2rem 4rem;background:rgba(18,10,5,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+    .nav-logo{font-family:var(--ff-display);font-size:1.3rem;font-weight:600;color:var(--gold);}
+    .nav-logo span{color:var(--cream);font-weight:300;}
+    .nav-links{display:flex;gap:2.5rem;align-items:center;}
+    .nav-links a{font-size:0.82rem;font-weight:500;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;position:relative;}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--gold);transform:scaleX(0);transition:transform 0.3s;}
+    .nav-links a:hover,.nav-links a.active{color:var(--gold);}
+    .nav-links a:hover::after,.nav-links a.active::after{transform:scaleX(1);}
+    .nav-cta{background:var(--copper)!important;color:var(--espresso)!important;padding:0.45rem 1.2rem!important;border-radius:2px!important;font-weight:500!important;}
+    .nav-cta::after{display:none!important;}
+    .page-hero{padding:9rem 4rem 4rem;background:var(--walnut);border-bottom:1px solid var(--border);position:relative;overflow:hidden;}
+    .page-hero::after{content:'BI';position:absolute;right:-1rem;top:50%;transform:translateY(-50%);font-family:var(--ff-display);font-size:18rem;font-weight:700;color:rgba(193,122,47,0.05);line-height:1;pointer-events:none;}
+    .container{max-width:1200px;margin:0 auto;}
+    .page-eyebrow{font-family:var(--ff-mono);font-size:0.72rem;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.8rem;}
+    .page-eyebrow::before{content:'';display:inline-block;width:30px;height:1px;background:var(--copper);}
+    .page-title{font-family:var(--ff-display);font-size:clamp(2.8rem,5vw,4.5rem);font-weight:300;line-height:1.05;color:var(--cream);margin-bottom:1rem;}
+    .page-title em{font-style:italic;color:var(--gold);}
+    .page-subtitle{font-size:1rem;color:var(--muted);max-width:600px;line-height:1.8;font-weight:300;margin-bottom:1.5rem;}
+    .back-link{display:inline-flex;align-items:center;gap:0.5rem;font-size:0.8rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s;}
+    .back-link:hover{color:var(--copper);}
+    .projects-section{padding:5rem 4rem;}
+    /* Full width project for single BI project */
+    .project-full{background:var(--mahogany);overflow:hidden;transition:background 0.3s;margin-bottom:3px;}
+    .project-full:hover{background:var(--bark);}
+    .project-full-hero{width:100%;height:320px;background:var(--bark);display:flex;align-items:center;justify-content:center;font-size:5rem;gap:2rem;border-bottom:1px solid var(--border);}
+    .project-full-hero span{font-family:var(--ff-mono);font-size:0.7rem;color:var(--muted);letter-spacing:0.15em;}
+    .project-full-body{padding:3rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;}
+    .project-tool{font-family:var(--ff-mono);font-size:0.65rem;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:0.8rem;}
+    .project-title{font-family:var(--ff-display);font-size:clamp(1.5rem,2.5vw,2rem);font-weight:400;color:var(--cream);margin-bottom:1rem;line-height:1.2;}
+    .project-desc{font-size:0.92rem;color:var(--muted);line-height:1.9;font-weight:300;margin-bottom:1.5rem;}
+    .project-insight{padding:1rem 1.2rem;border-left:2px solid var(--copper);background:rgba(193,122,47,0.06);margin-bottom:1.8rem;border-radius:0 4px 4px 0;}
+    .project-insight strong{font-size:0.72rem;font-family:var(--ff-mono);color:var(--copper);letter-spacing:0.15em;text-transform:uppercase;display:block;margin-bottom:0.4rem;}
+    .project-insight p{font-size:0.88rem;color:var(--sand);line-height:1.7;}
+    .project-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.8rem;}
+    .tag{font-family:var(--ff-mono);font-size:0.65rem;color:var(--muted);border:1px solid var(--border);padding:0.25rem 0.7rem;border-radius:2px;letter-spacing:0.1em;}
+    .project-btns{display:flex;gap:0.8rem;flex-wrap:wrap;}
+    .btn-primary{background:var(--copper);color:var(--espresso);padding:0.7rem 1.6rem;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;border-radius:2px;transition:background 0.2s,transform 0.15s;display:inline-block;}
+    .btn-primary:hover{background:var(--gold);transform:translateY(-1px);}
+    .btn-outline{border:1px solid var(--border-h);color:var(--sand);padding:0.7rem 1.6rem;font-size:0.8rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;border-radius:2px;transition:border-color 0.2s,color 0.2s;display:inline-block;}
+    .btn-outline:hover{border-color:var(--gold);color:var(--gold);}
+    /* Dashboard pages preview */
+    .pages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;margin-top:1rem;}
+    .page-card{background:var(--bark);padding:1.5rem;border-top:2px solid transparent;transition:border-color 0.3s;}
+    .page-card:hover{border-top-color:var(--copper);}
+    .page-card-num{font-family:var(--ff-mono);font-size:0.65rem;color:var(--copper);letter-spacing:0.2em;margin-bottom:0.5rem;}
+    .page-card-title{font-family:var(--ff-display);font-size:1.1rem;color:var(--cream);margin-bottom:0.5rem;}
+    .page-card-desc{font-size:0.82rem;color:var(--muted);line-height:1.7;}
+    /* DAX table */
+    .dax-table{width:100%;border-collapse:collapse;margin-top:1rem;}
+    .dax-table th{font-family:var(--ff-mono);font-size:0.65rem;color:var(--copper);letter-spacing:0.15em;text-transform:uppercase;padding:0.6rem 0.8rem;text-align:left;border-bottom:1px solid var(--border);}
+    .dax-table td{font-size:0.82rem;padding:0.6rem 0.8rem;border-bottom:1px solid rgba(193,122,47,0.08);color:var(--muted);}
+    .dax-table td:first-child{color:var(--sand);font-family:var(--ff-mono);font-size:0.75rem;}
+    footer{background:var(--espresso);border-top:1px solid var(--border);padding:2rem 4rem;display:flex;justify-content:space-between;align-items:center;}
+    footer .f-logo{font-family:var(--ff-display);font-size:1rem;color:var(--gold);}
+    footer .f-copy{font-size:0.75rem;color:var(--dim);}
+    footer .f-links{display:flex;gap:1.5rem;}
+    footer .f-links a{font-size:0.75rem;color:var(--dim);transition:color 0.2s;}
+    footer .f-links a:hover{color:var(--copper);}
+    @media(max-width:900px){nav{padding:1rem 1.5rem;}.page-hero,.projects-section{padding-left:1.5rem;padding-right:1.5rem;}.project-full-body{grid-template-columns:1fr;}.pages-grid{grid-template-columns:1fr;}footer{flex-direction:column;gap:1rem;text-align:center;}}
+    @media(max-width:600px){.nav-links{display:none;}}
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Moreen <span>Gatwiri</span></div>
+    <div class="nav-links">
+      <a href="index.html#story">Journey</a>
+      <a href="sql.html">SQL</a>
+      <a href="excel.html">Excel</a>
+      <a href="powerbi.html" class="active">Power BI</a>
+      <a href="python.html">Python</a>
+      <a href="index.html#contact" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <div class="page-hero">
+    <div class="container">
+      <p class="page-eyebrow">Portfolio · Power BI Project</p>
+      <h1 class="page-title">Interactive <em>Power BI</em><br>Dashboard</h1>
+      <p class="page-subtitle">A live fraud monitoring dashboard connected directly to MySQL — three pages of KPI cards, charts and conditional formatting built with DAX measures.</p>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </div>
+
+  <section class="projects-section">
+    <div class="container">
+      <div class="project-full">
+        <div class="project-full-hero">
+          ⚡
+          <span>Fraud Detection Monitoring Dashboard · 3 Pages · 6 DAX Measures</span>
+        </div>
+        <div class="project-full-body">
+          <div>
+            <p class="project-tool">Power BI · MySQL · DAX · Conditional Formatting</p>
+            <h2 class="project-title">Fraud Detection Monitoring Dashboard</h2>
+            <p class="project-desc">
+              A three-page interactive Power BI dashboard connected live to a MySQL fraud detection database.
+              The dashboard monitors transaction risk, flags suspicious activity, and tracks customer risk profiles
+              using 6 DAX measures, conditional formatting rules, and 4 SQL views as data sources.
+            </p>
+            <div class="project-insight">
+              <strong>Key Insight</strong>
+              <p>KES 2.60M of KES 7.24M total portfolio flagged as at-risk — a 35.9% exposure rate. 2 transactions exceed the KES 1M threshold. Account 1002 flagged for rapid transfers. Mombasa leads city hotspots at KES 2.02M.</p>
+            </div>
+            <div class="project-tags">
+              <span class="tag">Power BI</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">DAX</span>
+              <span class="tag">Conditional Formatting</span>
+              <span class="tag">KPI Cards</span>
+              <span class="tag">Fraud Monitoring</span>
+            </div>
+            <div class="project-btns">
+              <a href="assets/files/powerbi/fraud-dashboard-report.docx" class="btn-primary" target="_blank">↓ Project Report</a>
+              <a href="assets/files/powerbi/Fraud_Detection_Monitoring_Dashboard.pbix" class="btn-primary" target="_blank">↓ PBIX file</a>
+            </div>
+          </div>
+
+          <div>
+            <p style="font-family:var(--ff-mono);font-size:0.65rem;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem;">DAX Measures Used</p>
+            <table class="dax-table">
+              <thead><tr><th>Measure</th><th>Purpose</th></tr></thead>
+              <tbody>
+                <tr><td>Total Transactions</td><td>Count of all transactions</td></tr>
+                <tr><td>Total Value</td><td>Sum of all transaction amounts</td></tr>
+                <tr><td>High Value Transactions</td><td>Count above KES 1M</td></tr>
+                <tr><td>Value at Risk</td><td>Total KES value flagged</td></tr>
+                <tr><td>High Risk Customers</td><td>Customers with score &lt; 600</td></tr>
+                <tr><td>Flagged Rate %</td><td>% of transactions flagged</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div style="padding:0 3rem 3rem;">
+          <p style="font-family:var(--ff-mono);font-size:0.65rem;color:var(--copper);letter-spacing:0.2em;text-transform:uppercase;margin-bottom:1rem;">Dashboard Pages</p>
+          <div class="pages-grid">
+            <div class="page-card">
+              <p class="page-card-num">Page 01</p>
+              <h3 class="page-card-title">Fraud Detection Overview</h3>
+              <p class="page-card-desc">4 KPI cards, transaction value by city bar chart, type breakdown donut, city slicer.</p>
+            </div>
+            <div class="page-card">
+              <p class="page-card-num">Page 02</p>
+              <h3 class="page-card-title">Fraud Risk Signals</h3>
+              <p class="page-card-desc">High-value transactions table, rapid transfer activity, high-risk customers, geographic hotspots.</p>
+            </div>
+            <div class="page-card">
+              <p class="page-card-num">Page 03</p>
+              <h3 class="page-card-title">Customer Risk Monitoring</h3>
+              <p class="page-card-desc">Risk score distribution chart, high risk KPI card, customer risk register with conditional formatting.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="f-logo">Moreen Gatwiri</div>
+    <p class="f-copy">© 2026 · Data Analytics Portfolio</p>
+    <div class="f-links">
+      <a href="sql.html">SQL</a>
+      <a href="excel.html">Excel</a>
+      <a href="powerbi.html">Power BI</a>
+      <a href="python.html">Python</a>
+    </div>
+  </footer>
+
+</body>
+</html>

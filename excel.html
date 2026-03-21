@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Excel Projects | Moreen Gatwiri</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --espresso:   #120A05;
+      --walnut:     #1E1008;
+      --mahogany:   #2D1810;
+      --bark:       #3D2010;
+      --caramel:    #5C3318;
+      --copper:     #C17A2F;
+      --gold:       #D4A017;
+      --amber:      #E8892A;
+      --cream:      #FDF3DC;
+      --sand:       #EDD9A3;
+      --muted:      #A08060;
+      --dim:        #6B4E30;
+      --border:     rgba(193,122,47,0.2);
+      --border-h:   rgba(212,160,23,0.5);
+      --ff-display: 'Cormorant Garamond', Georgia, serif;
+      --ff-body:    'DM Sans', sans-serif;
+      --ff-mono:    'JetBrains Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--espresso); color: var(--cream); font-family: var(--ff-body); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(18,10,5,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo { font-family: var(--ff-display); font-size: 1.3rem; font-weight: 600; color: var(--gold); }
+    .nav-logo span { color: var(--cream); font-weight: 300; }
+    .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+    .nav-links a { font-size: 0.82rem; font-weight: 500; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; position: relative; }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; right: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform 0.3s; }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+    .nav-links a.active { color: var(--gold); }
+    .nav-links a.active::after { transform: scaleX(1); }
+    .nav-cta { background: var(--copper) !important; color: var(--espresso) !important; padding: 0.45rem 1.2rem !important; border-radius: 2px !important; font-weight: 500 !important; }
+    .nav-cta:hover { background: var(--gold) !important; }
+    .nav-cta::after { display: none !important; }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding: 9rem 4rem 4rem;
+      background: var(--walnut);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-hero::after {
+      content: 'EXCEL';
+      position: absolute; right: -1rem; top: 50%;
+      transform: translateY(-50%);
+      font-family: var(--ff-display);
+      font-size: 14rem; font-weight: 700;
+      color: rgba(193,122,47,0.05);
+      line-height: 1; pointer-events: none;
+      letter-spacing: -0.05em;
+    }
+    .container { max-width: 1200px; margin: 0 auto; }
+    .page-eyebrow { font-family: var(--ff-mono); font-size: 0.72rem; color: var(--copper); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.8rem; }
+    .page-eyebrow::before { content: ''; display: inline-block; width: 30px; height: 1px; background: var(--copper); }
+    .page-title { font-family: var(--ff-display); font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.05; color: var(--cream); margin-bottom: 1rem; }
+    .page-title em { font-style: italic; color: var(--gold); }
+    .page-subtitle { font-size: 1rem; color: var(--muted); max-width: 600px; line-height: 1.8; font-weight: 300; margin-bottom: 1.5rem; }
+    .back-link { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; transition: color 0.2s; }
+    .back-link:hover { color: var(--copper); }
+
+    /* PROJECTS */
+    .projects-section { padding: 5rem 4rem; }
+    .project-block {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0; margin-bottom: 3px;
+      background: var(--mahogany);
+      overflow: hidden;
+      transition: background 0.3s;
+    }
+    .project-block:hover { background: var(--bark); }
+    .project-block.reverse { direction: rtl; }
+    .project-block.reverse > * { direction: ltr; }
+    .project-img {
+      width: 100%; height: 100%; min-height: 360px;
+      object-fit: cover;
+      filter: sepia(20%) brightness(0.75);
+      transition: filter 0.4s;
+    }
+    .project-block:hover .project-img { filter: sepia(10%) brightness(0.9); }
+    .project-img-placeholder {
+      width: 100%; min-height: 360px;
+      background: var(--bark);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5rem;
+      flex-direction: column; gap: 1rem;
+    }
+    .project-img-placeholder span { font-family: var(--ff-mono); font-size: 0.7rem; color: var(--muted); letter-spacing: 0.15em; }
+    .project-content { padding: 3rem; display: flex; flex-direction: column; justify-content: center; }
+    .project-tool { font-family: var(--ff-mono); font-size: 0.65rem; color: var(--copper); letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .project-title { font-family: var(--ff-display); font-size: clamp(1.5rem, 2.5vw, 2rem); font-weight: 400; color: var(--cream); margin-bottom: 1rem; line-height: 1.2; }
+    .project-desc { font-size: 0.92rem; color: var(--muted); line-height: 1.9; font-weight: 300; margin-bottom: 1.5rem; }
+    .project-insight {
+      padding: 1rem 1.2rem;
+      border-left: 2px solid var(--copper);
+      background: rgba(193,122,47,0.06);
+      margin-bottom: 1.8rem;
+      border-radius: 0 4px 4px 0;
+    }
+    .project-insight strong { font-size: 0.72rem; font-family: var(--ff-mono); color: var(--copper); letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 0.4rem; }
+    .project-insight p { font-size: 0.88rem; color: var(--sand); line-height: 1.7; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.8rem; }
+    .tag { font-family: var(--ff-mono); font-size: 0.65rem; color: var(--muted); border: 1px solid var(--border); padding: 0.25rem 0.7rem; border-radius: 2px; letter-spacing: 0.1em; }
+    .project-btns { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+    .btn-primary { background: var(--copper); color: var(--espresso); padding: 0.7rem 1.6rem; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; transition: background 0.2s, transform 0.15s; display: inline-block; }
+    .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+    .btn-outline { border: 1px solid var(--border-h); color: var(--sand); padding: 0.7rem 1.6rem; font-size: 0.8rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; border-radius: 2px; transition: border-color 0.2s, color 0.2s; display: inline-block; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* DIVIDER */
+    .section-divider { padding: 0 4rem; }
+    .section-divider hr { border: none; border-top: 1px solid var(--border); }
+
+    /* FOOTER */
+    footer { background: var(--espresso); border-top: 1px solid var(--border); padding: 2rem 4rem; display: flex; justify-content: space-between; align-items: center; }
+    footer .f-logo { font-family: var(--ff-display); font-size: 1rem; color: var(--gold); }
+    footer .f-copy { font-size: 0.75rem; color: var(--dim); }
+    footer .f-links { display: flex; gap: 1.5rem; }
+    footer .f-links a { font-size: 0.75rem; color: var(--dim); transition: color 0.2s; }
+    footer .f-links a:hover { color: var(--copper); }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .page-hero, .projects-section, .section-divider { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .project-block { grid-template-columns: 1fr; }
+      .project-block.reverse { direction: ltr; }
+      .project-img-placeholder { min-height: 220px; }
+      footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+    @media (max-width: 600px) { .nav-links { display: none; } }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo">Moreen <span>Gatwiri</span></div>
+    <div class="nav-links">
+      <a href="index.html#story">Journey</a>
+      <a href="sql.html">SQL</a>
+      <a href="excel.html" class="active">Excel</a>
+      <a href="powerbi.html">Power BI</a>
+      <a href="python.html">Python</a>
+      <a href="index.html#contact" class="nav-cta">Contact</a>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <p class="page-eyebrow">Portfolio · Excel Projects</p>
+      <h1 class="page-title">Advanced <em>Excel</em><br>Analytics</h1>
+      <p class="page-subtitle">Financial dashboards, customer analytics and portfolio risk modelling using Microsoft Excel and Power Query.</p>
+      <a href="index.html" class="back-link">← Back to Home</a>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <section class="projects-section">
+    <div class="container">
+
+      <!-- PROJECT 1 -->
+      <div class="project-block">
+        <div class="project-img-placeholder">
+          📈
+          <span>Customer Attrition Dashboard</span>
+        </div>
+        <div class="project-content">
+          <p class="project-tool">Excel · Power Query · Advanced Analytics</p>
+          <h2 class="project-title">Customer Attrition & Engagement Risk Dashboard</h2>
+          <p class="project-desc">
+            An Excel-based banking analytics project analysing how digital engagement,
+            product ownership, and transaction behaviour drive customer churn and revenue risk
+            across a simulated retail banking portfolio of 10,000 customers.
+          </p>
+          <div class="project-insight">
+            <strong>Key Insight</strong>
+            <p>Digitally inactive customers churn 12.6pp higher than active customers — exposing KES 186M in revenue at risk. Customers with 3+ products show 85.9% churn, indicating severe product–customer misalignment.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Excel</span>
+            <span class="tag">Power Query</span>
+            <span class="tag">Pivot Tables</span>
+            <span class="tag">Churn Analysis</span>
+            <span class="tag">Value at Risk</span>
+            <span class="tag">Dashboard</span>
+          </div>
+          <div class="project-btns">
+            <a href="assets/files/excel/customer-attrition/customer-attrition-report.docx" class="btn-primary" target="_blank">↓ Project Report</a>
+            <a href="assets/files/excel/customer-attrition/customer-attrition-presentation.pptx" class="btn-outline" target="_blank">↓ Presentation</a>
+            <a href="assets/files/excel/customer-attrition/customer-attrition.xlsx" class="btn-outline" target="_blank">↓ Excel File</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2 -->
+      <div class="project-block reverse">
+        <div class="project-img-placeholder">
+          🏦
+          <span>Loan Portfolio Risk Analysis</span>
+        </div>
+        <div class="project-content">
+          <p class="project-tool">Excel · Advanced Formulas · Portfolio Analytics</p>
+          <h2 class="project-title">Retail Banking Loan Portfolio Risk & Performance Analysis</h2>
+          <p class="project-desc">
+            An advanced Excel modelling project analysing a simulated retail banking loan portfolio
+            of 2,000 loan records across multiple branches, products, and borrower profiles —
+            evaluating credit risk exposure, lending concentration, collateral coverage, and portfolio yield.
+          </p>
+          <div class="project-insight">
+            <strong>Key Insight</strong>
+            <p>Mortgage loans dominate at 73% of total exposure. Nyeri branch holds the largest portfolio at ~KES 1.9B. Karen and Kisumu show the highest default exposure — indicating concentrated credit risk in those regions.</p>
+          </div>
+          <div class="project-tags">
+            <span class="tag">Excel</span>
+            <span class="tag">SUMIFS</span>
+            <span class="tag">VLOOKUP</span>
+            <span class="tag">Portfolio Risk</span>
+            <span class="tag">Collateral Coverage</span>
+            <span class="tag">Branch Analysis</span>
+          </div>
+          <div class="project-btns">
+            <a href="assets/files/excel/loan-portfolio/loan-portfolio-report.docx" class="btn-primary" target="_blank">↓ Project Report</a>
+            <a href="assets/files/excel/loan-portfolio/loan-portfolio.xlsx" class="btn-outline" target="_blank">↓ Excel File</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <div class="f-logo">Moreen Gatwiri</div>
+    <p class="f-copy">© 2026 · Data Analytics Portfolio</p>
+    <div class="f-links">
+      <a href="sql.html">SQL</a>
+      <a href="excel.html">Excel</a>
+      <a href="powerbi.html">Power BI</a>
+      <a href="python.html">Python</a>
+    </div>
+  </footer>
+
+</body>
+</html>
