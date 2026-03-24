@@ -8,7 +8,7 @@
 
 ## About Me
 
-I am a Data Analyst with a BSc in Mathematics (Second Class Honours – Upper Division, University of Nairobi) and hands-on experience in banking and financial analytics. I currently work as a Direct Sales Representative at HF Group, where I interact with clients daily and gain firsthand insight into customer behaviour, financial products, and operational risk.
+I am a Data Analyst with a BSc in Mathematics (Second Class Honour – Upper Division, University of Nairobi) and hands-on experience in banking and financial analytics. I currently work as a Direct Sales Representative at HF Group, where I interact with clients daily and gain firsthand insight into customer behaviour, financial products, and operational risk.
 
 This portfolio contains **6 end-to-end banking analytics projects** across 4 tools — SQL, Excel, Power BI, and Python — all focused on the banking and financial services domain.
 
