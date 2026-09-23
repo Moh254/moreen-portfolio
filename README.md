@@ -70,9 +70,13 @@ Graduated: September 2023
 ## Certifications
 
 -Master SQL for Data Science, Job Ready Programmer
+
 -Business Analytics with Excel, Simplilearn
+
 -Machine Learning, Simplilearn
+
 -Statistical Packages, Mathematics Association, University of Nairobi
+
 -AWS AI Practitioner Challenge, AWS
 
 ## In Progress
