@@ -69,15 +69,15 @@ Graduated: September 2023
 
 ## Certifications
 
-Master SQL for Data Science, Job Ready Programmer
-Business Analytics with Excel, Simplilearn
-Machine Learning, Simplilearn
-Statistical Packages, Mathematics Association, University of Nairobi
-AWS AI Practitioner Challenge, AWS
+-Master SQL for Data Science, Job Ready Programmer
+-Business Analytics with Excel, Simplilearn
+-Machine Learning, Simplilearn
+-Statistical Packages, Mathematics Association, University of Nairobi
+-AWS AI Practitioner Challenge, AWS
 
-In Progress
+## In Progress
 
-Python for Data Science and Machine Learning Bootcamp, Pierian Training (60% complete)
+-Python for Data Science and Machine Learning Bootcamp, Pierian Training (60% complete)
 ---
 
 ## Contact
