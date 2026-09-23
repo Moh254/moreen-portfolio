@@ -81,7 +81,8 @@ Graduated: September 2023
 
 ## In Progress
 
--Python for Data Science and Machine Learning Bootcamp, Pierian Training (60% complete)
+-Python for Data Science and Machine Learning Bootcamp, Pierian Training
+
 ---
 
 ## Contact
