@@ -77,7 +77,7 @@ Graduated: September 2023
 
 -Statistical Packages, Mathematics Association, University of Nairobi
 
--AWS AI Practitioner Challenge, AWS
+-AWS AI Practitioner Challenge, Udacity
 
 ## In Progress
 
