@@ -1,6 +1,6 @@
 # Moreen Gatwiri — Data Analytics Portfolio
 
-> *"I don't just analyse data — I spent years on the other side of it, watching it be ignored, misread, or processed by hand. That's why I build solutions that actually solve the problems people feel every day."*
+> *"I don't just analyse data. I spent years on the other side of it, watching it be ignored, misread, or processed by hand. That's why I build solutions that actually solve the problems people feel every day."*
 
 **🌐 Live Portfolio:** [moh254.github.io/moreen-portfolio](https://moh254.github.io/moreen-portfolio)
 
@@ -8,9 +8,11 @@
 
 ## About Me
 
-I am a Data Analyst with a BSc in Mathematics (Second Class Honour – Upper Division, University of Nairobi) and hands-on experience in banking and financial analytics. I currently work as a Direct Sales Representative at HF Group, where I interact with clients daily and gain firsthand insight into customer behaviour, financial products, and operational risk.
+I am a Data Analyst with a BSc in Mathematics (Second Class Honour, Upper Division, University of Nairobi) and a genuine curiosity for what numbers reveal about people and businesses. My background includes hands-on experience in the banking sector, where daily interaction with clients and internal processes gave me firsthand insight into customer behaviour, operational inefficiencies, and the real-world gaps that good data can close.
 
-This portfolio contains **6 end-to-end banking analytics projects** across 4 tools — SQL, Excel, Power BI, and Python — all focused on the banking and financial services domain.
+That combination, a strong mathematical foundation and exposure to how businesses actually run, shapes how I approach analytics: not just building dashboards and models, but solving problems people feel every day.
+
+This portfolio contains 6 end-to-end analytics projects across 4 tools: SQL, Excel, Power BI, and Python, spanning fraud detection, credit risk, customer attrition, and business decision-making.
 
 ---
 
@@ -67,10 +69,15 @@ Graduated: September 2023
 
 ## Certifications
 
-- Business Analytics with Excel — Simplilearn
-- Machine Learning — Simplilearn
-- Statistical Packages — Mathematics Association, University of Nairobi
+Master SQL for Data Science, Job Ready Programmer
+Business Analytics with Excel, Simplilearn
+Machine Learning, Simplilearn
+Statistical Packages, Mathematics Association, University of Nairobi
+AWS AI Practitioner Challenge, AWS
 
+In Progress
+
+Python for Data Science and Machine Learning Bootcamp, Pierian Training (60% complete)
 ---
 
 ## Contact
@@ -81,5 +88,5 @@ Graduated: September 2023
 
 ---
 
-*Open to Data Analyst roles in banking and financial services — Nairobi, Kenya*
+*Open to data analytics roles where I can turn data into better business decisions, based in Nairobi, Kenya*
 
